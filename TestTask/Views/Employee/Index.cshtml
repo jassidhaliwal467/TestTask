@@ -1,0 +1,50 @@
+﻿@model TestTask.Models.Salary
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Salary Calculation</h2>
+<html>
+<head>
+
+</head>
+<body>
+    <div class="row">
+        @using (Html.BeginForm("/Info", "employee", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="FirstName">First Name</label>
+                <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" placeholder="Enter First Name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="LastName">Last Name</label>
+                <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" placeholder="Enter Last Name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="AnnualSalaryInUSD">Annual Salary in USD</label>
+                <input type="number" class="form-control" id="AnnualSalaryInUSD" name="AnnualSalaryInUSD" value="@Model.AnnualSalaryInUSD" placeholder="Enter Annual Salary" required />
+            </div>
+
+            <div class="form-group">
+                <label for="SuperRateInPercentage">Super Rate in Percentage</label>
+                <input type="number" class="form-control" id="SuperRateInPercentage" name="SuperRateInPercentage"
+                       min="0" max="12" step="0.001" value="@Model.SuperRateInPercentage" placeholder="Enter Super Rate" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="Start_Date">Start Date</label>
+                <input type="date" class="form-control" id="Start_Date" name="Start_Date" value="@Model.Start_Date" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="End_Date">End Date</label>
+                <input type="date" class="form-control" id="End_Date" name="End_Date" value="@Model.End_Date" required />
+            </div>
+
+            <button type="submit" class="btn btn-info" id="add" value="add">Generate Payslip</button>
+        }
+    </div>
+</body>
+</html>
